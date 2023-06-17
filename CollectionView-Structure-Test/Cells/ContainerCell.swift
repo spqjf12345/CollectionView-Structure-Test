@@ -1,27 +1,13 @@
 //
-//  PersonalViewController.swift
+//  ContainerCell.swift
 //  CollectionView-Structure-Test
 //
-//  Created by 조소정 on 2023/06/15.
+//  Created by 조소정 on 2023/06/17.
 //
 
 import UIKit
-import SnapKit
 
-protocol ScrollDelegate: AnyObject {
-    func setHeaderHeight(to height: CGFloat)
-}
-
-class PersonalViewController: UIViewController {
-    
-    struct ItemCard: Hashable {
-        var uuid = UUID()
-        var imageUrl: UIImage
-        var itemName: String
-        var convinientStoreTagImage: UIImage
-        var eventTagImage: UIImage
-    }
-
+class ContainerCell: UICollectionViewCell {
     enum SectionType: Hashable {
         case event
         case item
@@ -47,13 +33,18 @@ class PersonalViewController: UIViewController {
     var currentContentOffsetY: CGFloat = 0
     var lastContentOffSetY: CGFloat = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         setupDummyData()
+        setupViews()
         configureUI()
         configureDatasource()
         configureHeaderView()
         makeSnapshot()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupDummyData() {
@@ -102,17 +93,8 @@ class PersonalViewController: UIViewController {
         //TO DO : fix color
         collectionView.backgroundColor = .gray
         collectionView.delegate = self
-        setNavigationView()
         setupCollectionView()
-        setupViews()
         
-    }
-    
-    private func setNavigationView() {
-        title = "이벤트"
-        tabBarItem = UITabBarItem(title: "이벤트",
-                                  image: UIImage(systemName: "square.and.arrow.up"),
-                                  selectedImage: UIImage(systemName: "square.and.arrow.up.fill"))
     }
     
     private func setupCollectionView() {
@@ -130,8 +112,8 @@ class PersonalViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.addSubview(collectionView)
-        
+        contentView.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -194,7 +176,7 @@ class PersonalViewController: UIViewController {
 }
 
 
-extension PersonalViewController: UICollectionViewDelegate {
+extension ContainerCell: UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         lastContentOffSetY = scrollView.contentOffset.y

@@ -12,6 +12,12 @@ protocol ViewControllerDelegate: AnyObject {
     func didTapCell()
 }
 
+/* ViewController -> headerView (네비게이션바)
+    -> 편의점 리스트 collectionview
+    -> PersonalPageViewController
+        -> PersonalViewController
+           -> collectionView (상품리스트) */
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
@@ -108,21 +114,9 @@ extension ViewController: PersonalPageViewControllerDelegate {
 
 extension ViewController: ScrollDelegate {
     func setHeaderHeight(to height: CGFloat) {
-        if height == 0 {
-            //hide
-            UIView.animate(withDuration: 0.1) {
-                self.headerHeightConstraints.constant = 0
-                self.view.layoutIfNeeded()
-            }
-        }else {
-            UIView.animate(withDuration: 0.1) {
-                self.headerHeightConstraints.constant = height
-                self.view.layoutIfNeeded()
-            }
+        UIView.animate(withDuration: 0.1) {
+            self.headerHeightConstraints.constant = height
+            self.view.layoutIfNeeded()
         }
-        
-//        let currentHeight = headerHeightConstraints.constant
-//        if currentHeight == height { return }
-        
     }
 }

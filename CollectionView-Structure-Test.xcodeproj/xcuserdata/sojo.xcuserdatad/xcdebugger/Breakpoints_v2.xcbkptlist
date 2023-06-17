@@ -242,5 +242,117 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0D74ED7-1519-4AF0-ACEC-2F64808A6B68"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/Cells/ContainerCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "configureDatasource()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "D0D74ED7-1519-4AF0-ACEC-2F64808A6B68 - e1b5439ac125eff9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UICollectionView, Foundation.IndexPath, CollectionView_Structure_Test.ContainerCell.ItemType) -&gt; Swift.Optional&lt;__C.UICollectionViewCell&gt; in CollectionView_Structure_Test.ContainerCell.configureDatasource() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ContainerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "1588">
+               </Location>
+               <Location
+                  uuid = "D0D74ED7-1519-4AF0-ACEC-2F64808A6B68 - e1b5439ac125ef98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UICollectionView, Foundation.IndexPath, CollectionView_Structure_Test.ContainerCell.ItemType) -&gt; Swift.Optional&lt;__C.UICollectionViewCell&gt; in CollectionView_Structure_Test.ContainerCell.configureDatasource() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ContainerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "1340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6ED4654-784D-47FC-8817-944F3BD3339F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/Cells/ContainerCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "configureDatasource()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74B3F850-575C-4308-AC60-6D09A4DCEA3B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/Cells/ContainerCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "configureDatasource()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "74B3F850-575C-4308-AC60-6D09A4DCEA3B - e1b5439ac125ee1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UICollectionView, Foundation.IndexPath, CollectionView_Structure_Test.ContainerCell.ItemType) -&gt; Swift.Optional&lt;__C.UICollectionViewCell&gt; in CollectionView_Structure_Test.ContainerCell.configureDatasource() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ContainerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "852">
+               </Location>
+               <Location
+                  uuid = "74B3F850-575C-4308-AC60-6D09A4DCEA3B - e1b5439ac125ee1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UICollectionView, Foundation.IndexPath, CollectionView_Structure_Test.ContainerCell.ItemType) -&gt; Swift.Optional&lt;__C.UICollectionViewCell&gt; in CollectionView_Structure_Test.ContainerCell.configureDatasource() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ContainerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "608">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

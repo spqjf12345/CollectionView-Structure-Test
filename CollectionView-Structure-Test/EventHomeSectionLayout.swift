@@ -27,14 +27,6 @@ final class EventHomeSectionLayout {
         static let cellInterspacing: CGFloat = 16
     }
     
-    func section(at type: PersonalViewController.SectionType) -> NSCollectionLayoutSection {
-        switch type {
-        case .event:
-            return eventLayout()
-        case .item:
-            return itemLayout()
-        }
-    }
     
     func eventLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -73,11 +65,76 @@ final class EventHomeSectionLayout {
         return section
     }
     
+    
     private func createSupplementaryView() -> [NSCollectionLayoutBoundarySupplementaryItem] {
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                                                                            heightDimension: .absolute(Size.Header.height)),
                                                                         elementKind: "ItemHeaderTitleView", alignment: .top)
         sectionHeader.pinToVisibleBounds = true // 고정
         return [sectionHeader]
+    }
+}
+
+extension EventHomeSectionLayout {
+    func tabLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(80),
+                                               heightDimension: .estimated(60))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.contentInsets = NSDirectionalEdgeInsets(top: .zero,
+                                                        leading: 10,
+                                                        bottom: .zero,
+                                                        trailing: 10)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
+    func itemContainerLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(1.0))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [item])
+        group.interItemSpacing = .fixed(10)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+}
+
+extension EventHomeSectionLayout {
+    
+    func section(at type: PersonalViewController.SectionType) -> NSCollectionLayoutSection {
+        switch type {
+        case .event:
+            return eventLayout()
+        case .item:
+            return itemLayout()
+        }
+    }
+    
+    func section(at type: ContainerCell.SectionType) -> NSCollectionLayoutSection {
+        switch type {
+        case .event:
+            return eventLayout()
+        case .item:
+            return itemLayout()
+        }
+    }
+    
+    func section(at type: CollectionViewController.SectionType) -> NSCollectionLayoutSection {
+        switch type {
+        case .tab:
+            return tabLayout()
+        case .itemContainer:
+            return itemContainerLayout()
+        }
     }
 }
