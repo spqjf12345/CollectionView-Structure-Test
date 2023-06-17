@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "440D483A-2792-44F4-BB7A-74BACA80084D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58AF7061-9F6F-4EE8-8A69-A2CF1F8E6CBC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "228FF90D-6DF1-4EF4-AD09-4C16ED8AF84A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F702F2A-583D-4FAF-914A-739AE69F7C46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5719F04-0FB4-43E5-8F66-F98520344479"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "updateTabCell(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5968E6D5-2E29-4AF5-B06A-AED7146F8B0F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/PersonalPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "pageViewController(_:viewControllerAfter:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5968E6D5-2E29-4AF5-B06A-AED7146F8B0F - a115ba8168cec2a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerAfter: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "5968E6D5-2E29-4AF5-B06A-AED7146F8B0F - a115ba8168cec2a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerAfter: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "5968E6D5-2E29-4AF5-B06A-AED7146F8B0F - a115ba8168cec2a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerAfter: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB7A08D1-C4E4-4FA8-BBA6-E7D564C45C3B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/PersonalPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "pageViewController(_:viewControllerBefore:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB7A08D1-C4E4-4FA8-BBA6-E7D564C45C3B - da009534a97ab90c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerBefore: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "AB7A08D1-C4E4-4FA8-BBA6-E7D564C45C3B - da009534a97ab90c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerBefore: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "AB7A08D1-C4E4-4FA8-BBA6-E7D564C45C3B - da009534a97ab90c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.PersonalPageViewController.pageViewController(_: __C.UIPageViewController, viewControllerBefore: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/PersonalPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6AC99792-FEB0-43A0-8CB7-893FF3B09A38"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionView-Structure-Test/Cells/ProductCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "addConstraints()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6AC99792-FEB0-43A0-8CB7-893FF3B09A38 - ccefac7ab7f5d9e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionView_Structure_Test.ProductCell.addConstraints() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ProductCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "6AC99792-FEB0-43A0-8CB7-893FF3B09A38 - b9e19dcb6301f336"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (SnapKit.ConstraintMaker) -&gt; () in CollectionView_Structure_Test.ProductCell.addConstraints() -&gt; ()"
+                  moduleName = "CollectionView-Structure-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sojo/Study/CollectionView-Structure-Test/CollectionView-Structure-Test/Cells/ProductCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
