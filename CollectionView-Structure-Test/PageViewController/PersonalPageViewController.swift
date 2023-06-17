@@ -88,9 +88,13 @@ extension PersonalPageViewController: UIPageViewControllerDelegate, UIPageViewCo
 }
 
 extension PersonalPageViewController: ScrollDelegate {
-    func setHeaderHeight(to height: CGFloat) {
-        scrollDelegate?.setHeaderHeight(to: height)
+    
+    func scrollUp(to height: CGFloat) {
+        scrollDelegate?.scrollUp(to: height)
     }
     
+    func scrollDown(to height: CGFloat) {
+        scrollDelegate?.scrollDown(to: height)
+    }
     
 }

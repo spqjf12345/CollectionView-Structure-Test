@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tabView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var headerHeightConstraints: NSLayoutConstraint!
+    @IBOutlet weak var tabCollectionViewTop: NSLayoutConstraint!
     
     let pageViewController = PersonalPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
@@ -113,10 +114,24 @@ extension ViewController: PersonalPageViewControllerDelegate {
 }
 
 extension ViewController: ScrollDelegate {
-    func setHeaderHeight(to height: CGFloat) {
-        UIView.animate(withDuration: 0.1) {
-            self.headerHeightConstraints.constant = height
-            self.view.layoutIfNeeded()
+    func scrollUp(to height: CGFloat) {
+        let inset = 100 - height
+        if abs(height) < 100 {
+            self.tabCollectionViewTop.constant = inset
+        }
+        else {
+            self.tabCollectionViewTop.constant = 0
         }
     }
+    
+    func scrollDown(to height: CGFloat) {
+        let inset = 100 - height
+        if height < 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.tabCollectionViewTop.constant = inset
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+
 }

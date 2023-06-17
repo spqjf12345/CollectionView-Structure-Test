@@ -187,11 +187,11 @@ extension ContainerCell: UICollectionViewDelegate {
         if self.lastContentOffSetY < self.currentContentOffsetY {
             //header height를 0
             print("header height를 0")
-            delegate?.setHeaderHeight(to: 0)
+            delegate?.scrollUp(to: currentContentOffsetY)
         } else {
             //header height를 늘림
             print("header height를 늘림")
-            delegate?.setHeaderHeight(to: 100)
+            delegate?.scrollDown(to: currentContentOffsetY)
         }
     }
 }

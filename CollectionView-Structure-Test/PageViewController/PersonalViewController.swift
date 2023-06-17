@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 protocol ScrollDelegate: AnyObject {
-    func setHeaderHeight(to height: CGFloat)
+    func scrollUp(to height: CGFloat)
+    func scrollDown(to height: CGFloat)
 }
 
 struct ItemCard: Hashable {
@@ -195,21 +196,22 @@ class PersonalViewController: UIViewController {
 
 
 extension PersonalViewController: UICollectionViewDelegate {
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         lastContentOffSetY = scrollView.contentOffset.y
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         currentContentOffsetY = scrollView.contentOffset.y
+        print("inset \(currentContentOffsetY)")
+        
         if self.lastContentOffSetY < self.currentContentOffsetY {
             //header height를 0
             print("header height를 0")
-            delegate?.setHeaderHeight(to: 0)
+            delegate?.scrollUp(to: currentContentOffsetY)
         } else {
             //header height를 늘림
             print("header height를 늘림")
-            delegate?.setHeaderHeight(to: 100)
+            delegate?.scrollDown(to: currentContentOffsetY)
         }
     }
 }

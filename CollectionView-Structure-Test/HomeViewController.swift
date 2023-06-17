@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
-    let solutions = ["pageViewController", "collectionView"]
+    let solutions = ["pageViewController", "collectionView", "StickyCollectionviewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,9 @@ class HomeViewController: UITableViewController {
         } else if indexPath.row == 1 {
             let viewControlelr = CollectionViewController()
             navigationController?.pushViewController(viewControlelr, animated: true)
+        }else if indexPath.row == 2 {
+            let viewController = StickyCollectionviewController()
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

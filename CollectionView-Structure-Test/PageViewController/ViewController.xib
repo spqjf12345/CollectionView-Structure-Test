@@ -13,6 +13,7 @@
                 <outlet property="contentView" destination="beV-ph-K5q" id="PkR-mX-FAL"/>
                 <outlet property="headerHeightConstraints" destination="DF1-Ob-gtV" id="MwZ-XU-biB"/>
                 <outlet property="headerView" destination="fCY-96-Puh" id="zbb-Uo-Cc9"/>
+                <outlet property="tabCollectionViewTop" destination="mWX-mg-mJC" id="p6R-kO-ETd"/>
                 <outlet property="tabView" destination="df8-a7-tvA" id="RFC-fk-mCt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="AiB-tv-kkh"/>
             </connections>
@@ -48,7 +49,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="beV-ph-K5q" secondAttribute="bottom" id="M0f-w9-KJI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="beV-ph-K5q" secondAttribute="trailing" id="bPj-jX-1Ra"/>
                 <constraint firstItem="fCY-96-Puh" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="hiv-A6-EEq"/>
-                <constraint firstItem="df8-a7-tvA" firstAttribute="top" secondItem="fCY-96-Puh" secondAttribute="bottom" id="kz7-cJ-00S"/>
+                <constraint firstItem="df8-a7-tvA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="mWX-mg-mJC"/>
                 <constraint firstItem="df8-a7-tvA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pYt-Hs-8Hm"/>
                 <constraint firstItem="df8-a7-tvA" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="qFu-Yq-FbL"/>
                 <constraint firstItem="beV-ph-K5q" firstAttribute="top" secondItem="df8-a7-tvA" secondAttribute="bottom" id="sBa-kl-Vv9"/>

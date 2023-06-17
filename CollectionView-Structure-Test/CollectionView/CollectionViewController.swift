@@ -121,14 +121,31 @@ class CollectionViewController: UIViewController {
 }
 
 extension CollectionViewController: ScrollDelegate {
-    func setHeaderHeight(to height: CGFloat) {
-        UIView.animate(withDuration: 0.1) {
-            self.headerView.snp.updateConstraints { (make) in
-               make.height.equalTo(height)
+    
+    func scrollUp(to height: CGFloat) {
+        let inset = 100 - height
+        if abs(height) < 100 {
+            self.headerView.snp.updateConstraints {
+                $0.top.equalTo(inset)
             }
-            self.view.layoutIfNeeded()
+        }
+        else {
+            self.headerView.snp.updateConstraints {
+                $0.top.equalTo(0)
+            }
         }
     }
     
+    func scrollDown(to height: CGFloat) {
+        let inset = 100 - height
+        if height < 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.headerView.snp.updateConstraints {
+                    $0.top.equalTo(inset)
+                }
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
     
 }
