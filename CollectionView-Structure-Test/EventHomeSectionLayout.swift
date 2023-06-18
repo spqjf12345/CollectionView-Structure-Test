@@ -48,20 +48,25 @@ final class EventHomeSectionLayout {
     }
 
     private func itemLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(Size.Item.width), heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(Size.Item.width), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .absolute(Size.Item.height))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item,
+                                                       count: 2)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                      leading: 16,
+                                                      bottom: 0,
+                                                      trailing: 16)
         group.interItemSpacing = .fixed(Size.cellInterspacing)
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = Size.cellInterspacing
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0)
         section.boundarySupplementaryItems = createSupplementaryView()
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 20, trailing: 10)
         return section
     }
     
@@ -70,7 +75,6 @@ final class EventHomeSectionLayout {
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                                                                            heightDimension: .absolute(Size.Header.height)),
                                                                         elementKind: "ItemHeaderTitleView", alignment: .top)
-        sectionHeader.pinToVisibleBounds = true // 고정
         return [sectionHeader]
     }
 }

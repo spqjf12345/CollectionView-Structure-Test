@@ -30,7 +30,6 @@ class PersonalPageViewController: UIPageViewController {
             
         }
         
-        
         self.delegate = self
         self.dataSource = self
         if let firstViewController = pageViewControllers.first {

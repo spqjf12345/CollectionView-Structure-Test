@@ -29,7 +29,7 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let viewControlelr = ViewController(nibName: "ViewController", bundle: nil)
+            let viewControlelr = ViewController()
             navigationController?.pushViewController(viewControlelr, animated: true)
         } else if indexPath.row == 1 {
             let viewControlelr = CollectionViewController()

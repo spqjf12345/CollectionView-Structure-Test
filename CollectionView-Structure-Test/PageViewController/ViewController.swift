@@ -28,31 +28,35 @@ struct Tab: Hashable {
     }
 }
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tabView: UIView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var headerHeightConstraints: NSLayoutConstraint!
-    @IBOutlet weak var tabCollectionViewTop: NSLayoutConstraint!
-    
+final class ViewController: UIViewController {
+        
     enum Size {
-        static let headerViewHeight: CGFloat = 100
+        static let headerViewHeight: CGFloat = 50
     }
     
     let pageViewController = PersonalPageViewController(transitionStyle: .scroll,
                                                         navigationOrientation: .horizontal)
+    let headerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     let tabCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         flowLayout.itemSize = CGSize(width: width / 5, height: 40)
         flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
+    }()
+    
+    let contentView: UIView = {
+        let view = UIView()
+        return view
     }()
     
     private var isStickyed: Bool = false
@@ -65,6 +69,38 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayout()
+        view.backgroundColor = .white
+        tabCollectionView.delegate = self
+        tabCollectionView.dataSource = self
+        pageViewController.pageDelegate = self
+        pageViewController.scrollDelegate = self
+        tabCollectionView.register(UINib(nibName: "TabCell", bundle: nil), forCellWithReuseIdentifier: "TabCell")
+        
+    }
+    
+    private func setLayout() {
+        view.addSubview(headerView)
+        view.addSubview(tabCollectionView)
+        view.addSubview(contentView)
+        headerView.backgroundColor = .red
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(50)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        tabCollectionView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(50)
+            $0.height.equalTo(50)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.top.equalTo(tabCollectionView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
         contentView.addSubview(pageViewController.view)
         addChild(pageViewController)
         
@@ -72,17 +108,6 @@ class ViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         pageViewController.didMove(toParent: self)
-        
-        tabView.addSubview(tabCollectionView)
-        tabCollectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        tabCollectionView.delegate = self
-        tabCollectionView.dataSource = self
-        pageViewController.pageDelegate = self
-        pageViewController.scrollDelegate = self
-        tabCollectionView.register(UINib(nibName: "TabCell", bundle: nil), forCellWithReuseIdentifier: "TabCell")
         
     }
 
@@ -132,19 +157,27 @@ extension ViewController: ScrollDelegate {
         guard isStickyed == false else { return }
         let inset = Size.headerViewHeight - height
         if abs(height) < Size.headerViewHeight {
-            self.tabCollectionViewTop.constant = inset
+            self.tabCollectionView.snp.updateConstraints {
+                $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(inset)
+            }
+//            self.tabCollectionViewTop.constant = inset
         } else {
-            self.tabCollectionViewTop.constant = 0
+            self.tabCollectionView.snp.updateConstraints {
+                $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
+            }
             self.isStickyed = true
         }
 
     }
     
     func scrollDown(to height: CGFloat) {
-        let inset = Size.headerViewHeight - height
+        let inset = Size.headerViewHeight
         if height < 0 {
             UIView.animate(withDuration: 0.2) {
-                self.tabCollectionViewTop.constant = inset
+                self.tabCollectionView.snp.updateConstraints {
+                    $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(inset)
+                }
+//                self.tabCollectionViewTop.constant = inset
                 self.isStickyed = false
                 self.view.layoutIfNeeded()
             }
