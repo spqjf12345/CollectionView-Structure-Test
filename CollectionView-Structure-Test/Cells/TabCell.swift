@@ -7,31 +7,21 @@
 
 import UIKit
 
-protocol TabCellDelegate: AnyObject {
-    func didUpdatePage()
-}
-
 final class TabCell: UICollectionViewCell {
     
     @IBOutlet weak var tabLabel: UILabel!
     @IBOutlet weak var divider: UIView!
-    
-    override var isSelected: Bool {
-        didSet {
-            self.updateSelectedColor(isSelected: isSelected)
-        }
-    }
-    
-    weak var delegate: TabCellDelegate?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func update(with text: String) {
-        tabLabel.text = text
+    func update(with tab: Tab) {
+        tabLabel.text = tab.name
         tabLabel.textColor = .gray
         divider.backgroundColor = .systemGray6
+        
+        updateSelectedColor(isSelected: tab.isSelected)
     }
     
     func updateSelectedColor(isSelected: Bool) {

@@ -16,12 +16,16 @@ class CollectionViewController: UIViewController {
     }
     
     enum ItemType: Hashable {
-        case tab(data: String)
+        case tab(data: Tab)
         case itemContainer(data: String)
     }
     
     private var dataSource: UICollectionViewDiffableDataSource<SectionType, ItemType>?
-    let tabData: [String] = ["전체", "GS25", "이마트24", "세븐일레븐", "CU"]
+    let tabData: [Tab] = [Tab(name: "전체"),
+                          Tab(name: "GS25"),
+                          Tab(name: "이마트24"),
+                          Tab(name: "세븐일레븐"),
+                          Tab(name: "CU")]
     
     let headerView: UIView = {
         let view = UIView()
@@ -108,7 +112,7 @@ class CollectionViewController: UIViewController {
                 return ItemType.tab(data: tab)
             }
             let itemContainer = tabData.map { item in
-                return ItemType.itemContainer(data: item)
+                return ItemType.itemContainer(data: item.name)
             }
             snapshot.appendSections([.tab])
             snapshot.appendItems(tabs, toSection: .tab)

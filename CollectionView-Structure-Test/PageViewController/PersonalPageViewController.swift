@@ -14,16 +14,11 @@ protocol PersonalPageViewControllerDelegate: AnyObject {
 class PersonalPageViewController: UIPageViewController {
     var pageViewControllers = [PersonalViewController]()
     var currentViewController: PersonalViewController?
-    var currentIndex: Int = 0 {
-        didSet {
-            pageDelegate?.updateTabCell(index: currentIndex)
-        }
-    }
-    
-    
+    var currentIndex: Int = 0
+
     weak var pageDelegate: PersonalPageViewControllerDelegate?
     weak var scrollDelegate: ScrollDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         for index in 0..<5 {
@@ -56,6 +51,17 @@ class PersonalPageViewController: UIPageViewController {
 }
 
 extension PersonalPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        guard let viewControllers = pageViewController.viewControllers,
+              viewControllers.count > 0,
+              let viewController = viewControllers.first as? PersonalViewController,
+              let index = pageViewControllers.firstIndex(of: viewController) else {
+            return
+        }
+        
+        self.pageDelegate?.updateTabCell(index: index)
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewController = viewController as? PersonalViewController {

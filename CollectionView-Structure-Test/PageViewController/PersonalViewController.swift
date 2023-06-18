@@ -45,8 +45,8 @@ class PersonalViewController: UIViewController {
         return collectionView
     }()
     
-    var currentContentOffsetY: CGFloat = 0
-    var lastContentOffSetY: CGFloat = 0
+    private var currentContentOffsetY: CGFloat = 0
+    private var lastContentOffSetY: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

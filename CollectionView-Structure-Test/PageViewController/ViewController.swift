@@ -18,6 +18,16 @@ protocol ViewControllerDelegate: AnyObject {
         -> PersonalViewController
            -> collectionView (상품리스트) */
 
+struct Tab: Hashable {
+    var id = UUID()
+    var name: String
+    var isSelected: Bool = false
+    
+    mutating func updateSelectedState() {
+        isSelected = false
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
@@ -26,7 +36,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var headerHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var tabCollectionViewTop: NSLayoutConstraint!
     
-    let pageViewController = PersonalPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    enum Size {
+        static let headerViewHeight: CGFloat = 100
+    }
+    
+    let pageViewController = PersonalPageViewController(transitionStyle: .scroll,
+                                                        navigationOrientation: .horizontal)
     
     let tabCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -40,7 +55,12 @@ class ViewController: UIViewController {
         return collectionView
     }()
     
-    let tabData: [String] = ["전체", "GS25", "이마트24", "세븐일레븐", "CU"]
+    private var isStickyed: Bool = false
+    var tabData: [Tab] = [Tab(name: "전체", isSelected: true),
+                          Tab(name: "GS25"),
+                          Tab(name: "이마트24"),
+                          Tab(name: "세븐일레븐"),
+                          Tab(name: "CU")]
     weak var delegate: ViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -77,9 +97,6 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath) as? TabCell else { return UICollectionViewCell() }
         cell.update(with: tabData[indexPath.row])
-        if indexPath.row == 0 {
-            updateTabCell(index: 0)
-        }
         return cell
     }
     
@@ -87,8 +104,18 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: UICollectionViewDelegate {
+    
+    private func updateSelectedTabCell(with index: Int) {
+        for index in 0..<tabData.count {
+            tabData[index].updateSelectedState()
+        }
+        tabData[index].isSelected = true
+        tabCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabCollectionView {
+            updateSelectedTabCell(with: indexPath.row)
             self.pageViewController.updatePage(indexPath.row)
         }
     }
@@ -96,39 +123,29 @@ extension ViewController: UICollectionViewDelegate {
 
 extension ViewController: PersonalPageViewControllerDelegate {
     func updateTabCell(index: Int) {
-        let moveIndexPath = IndexPath(item: index, section: 0)
-        for item in 0..<tabData.count {
-            let makedIndexPath = IndexPath(item: item, section: 0)
-            if makedIndexPath == moveIndexPath {
-                if let cell = tabCollectionView.cellForItem(at: makedIndexPath) as? TabCell {
-                    cell.isSelected = true
-                }
-            }else {
-                if let cell = tabCollectionView.cellForItem(at: makedIndexPath) as? TabCell {
-                    cell.isSelected = false
-                }
-            }
-            
-        }
+        updateSelectedTabCell(with: index)
     }
 }
 
 extension ViewController: ScrollDelegate {
     func scrollUp(to height: CGFloat) {
-        let inset = 100 - height
-        if abs(height) < 100 {
+        guard isStickyed == false else { return }
+        let inset = Size.headerViewHeight - height
+        if abs(height) < Size.headerViewHeight {
             self.tabCollectionViewTop.constant = inset
-        }
-        else {
+        } else {
             self.tabCollectionViewTop.constant = 0
+            self.isStickyed = true
         }
+
     }
     
     func scrollDown(to height: CGFloat) {
-        let inset = 100 - height
+        let inset = Size.headerViewHeight - height
         if height < 0 {
             UIView.animate(withDuration: 0.2) {
                 self.tabCollectionViewTop.constant = inset
+                self.isStickyed = false
                 self.view.layoutIfNeeded()
             }
         }
