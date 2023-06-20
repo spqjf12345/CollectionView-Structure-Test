@@ -60,11 +60,7 @@ final class ViewController: UIViewController {
     }()
     
     private var isStickyed: Bool = false
-    var tabData: [Tab] = [Tab(name: "전체", isSelected: true),
-                          Tab(name: "GS25"),
-                          Tab(name: "이마트24"),
-                          Tab(name: "세븐일레븐"),
-                          Tab(name: "CU")]
+    private var tabData: [Tab] = DummyData.tabData
     weak var delegate: ViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -76,7 +72,6 @@ final class ViewController: UIViewController {
         pageViewController.pageDelegate = self
         pageViewController.scrollDelegate = self
         tabCollectionView.register(UINib(nibName: "TabCell", bundle: nil), forCellWithReuseIdentifier: "TabCell")
-        
     }
     
     private func setLayout() {
@@ -160,7 +155,6 @@ extension ViewController: ScrollDelegate {
             self.tabCollectionView.snp.updateConstraints {
                 $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(inset)
             }
-//            self.tabCollectionViewTop.constant = inset
         } else {
             self.tabCollectionView.snp.updateConstraints {
                 $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(0)
@@ -177,7 +171,6 @@ extension ViewController: ScrollDelegate {
                 self.tabCollectionView.snp.updateConstraints {
                     $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(inset)
                 }
-//                self.tabCollectionViewTop.constant = inset
                 self.isStickyed = false
                 self.view.layoutIfNeeded()
             }

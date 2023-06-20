@@ -21,11 +21,7 @@ class CollectionViewController: UIViewController {
     }
     
     private var dataSource: UICollectionViewDiffableDataSource<SectionType, ItemType>?
-    let tabData: [Tab] = [Tab(name: "전체"),
-                          Tab(name: "GS25"),
-                          Tab(name: "이마트24"),
-                          Tab(name: "세븐일레븐"),
-                          Tab(name: "CU")]
+    let tabData: [Tab] = DummyData.tabData
     
     let headerView: UIView = {
         let view = UIView()

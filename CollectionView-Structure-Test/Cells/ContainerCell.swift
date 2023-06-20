@@ -19,7 +19,6 @@ class ContainerCell: UICollectionViewCell {
     }
 
     private var dataSource: UICollectionViewDiffableDataSource<SectionType, ItemType>?
-    private var dummyImage = UIImage(systemName: "note")!
     private var itemCards: [ItemCard] = []
     private var eventUrls: [String] = []
     weak var delegate: ScrollDelegate?
@@ -48,32 +47,7 @@ class ContainerCell: UICollectionViewCell {
     }
     
     private func setupDummyData() {
-        itemCards = [
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "산리오)햄치즈에그모닝머핀ddd",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage)
-        ]
+        itemCards = DummyData.itemData
         eventUrls = ["test"]
     }
     

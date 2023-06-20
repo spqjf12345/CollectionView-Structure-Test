@@ -34,7 +34,6 @@ class PersonalViewController: UIViewController {
     }
 
     private var dataSource: UICollectionViewDiffableDataSource<SectionType, ItemType>?
-    private var dummyImage = UIImage(systemName: "note")!
     private var itemCards: [ItemCard] = []
     private var eventUrls: [String] = []
     weak var delegate: ScrollDelegate?
@@ -44,6 +43,8 @@ class PersonalViewController: UIViewController {
                                               collectionViewLayout: createLayout())
         return collectionView
     }()
+    
+    private var refreshControl = UIRefreshControl()
     
     private var currentContentOffsetY: CGFloat = 0
     private var lastContentOffSetY: CGFloat = 0
@@ -58,32 +59,7 @@ class PersonalViewController: UIViewController {
     }
     
     private func setupDummyData() {
-        itemCards = [
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "산리오)햄치즈에그모닝머핀ddd",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage),
-            ItemCard(imageUrl: dummyImage,
-                     itemName: "나가사끼 짬뽕",
-                     convinientStoreTagImage: dummyImage,
-                     eventTagImage: dummyImage)
-        ]
+        itemCards = DummyData.itemData
         eventUrls = ["test"]
     }
     
@@ -106,7 +82,6 @@ class PersonalViewController: UIViewController {
         setNavigationView()
         setupCollectionView()
         setupViews()
-        
     }
     
     private func setNavigationView() {
@@ -118,7 +93,9 @@ class PersonalViewController: UIViewController {
     
     private func setupCollectionView() {
         registerCollectionViewCells()
+        setRefreshControl()
     }
+
     
     private func registerCollectionViewCells() {
         collectionView.register(ItemHeaderTitleView.self,
@@ -128,6 +105,23 @@ class PersonalViewController: UIViewController {
                                 forCellWithReuseIdentifier: "EventBannerCell")
         collectionView.register(ProductCell.self,
                                 forCellWithReuseIdentifier: "ProductCell")
+    }
+    
+    private func setRefreshControl() {
+        refreshControl.addTarget(self,
+                                 action: #selector(pullToRefresh),
+                                 for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc private func pullToRefresh() {
+        collectionView.refreshControl?.beginRefreshing()
+        
+        //get data from api
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.makeSnapshot()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
     
     private func setupViews() {
@@ -203,7 +197,6 @@ extension PersonalViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         currentContentOffsetY = scrollView.contentOffset.y
         print("inset \(currentContentOffsetY)")
-        
         if self.lastContentOffSetY < self.currentContentOffsetY {
             //header height를 0
             print("header height를 0")
